@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <style>
+    ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+
+
+  </style>
+</head>
+<body>
+{{#logged_in}}
+
+          <ul>
+            <li><a class="nav" href="http://localhost:3000/home">Lobby</a></li>
+            <li><a class="nav" href="http://localhost:3000/resorts">Resorts Visited</a></li>
+            <li><a class="nav" href="http://localhost:3000/profile/">Profile Home</a></li>
+            <li><a class="nav" href="http://localhost:3000/logout/">Logout</a></li>
+          </ul>
+      <br>
+
+      <h4>Welcome {{firstname}}</h4>
+
+<p>If you want to update your profile, please update your user information below. Dont be shy and tell us a little bit more about yourself</p>
+      <form action="/user?_method=put" method="post" >
+      <input type="text" name="aboutMe" placeholder="aboutMe">
+      <button type="submit">submit</button>
+      </form>
+
+      <form action="/user?_method=put" method="post" >
+      <input type="text" list="skiLevel" name="skiLevel" placeholder="skiLevel">
+      <datalist id="skiLevel">
+        <option value="Green/Circle">
+        <option value="Blue/Square">
+        <option value="Black/Diamond">
+        <option value="Black/Double Diamond">
+      </datalist>
+      <input type="submit">
+      </form>
+
+      <form action="/user?_method=put" method="post" >
+      <input type="text" name="email" placeholder="email">
+      <button type="submit">submit</button>
+      </form>
+
+
+
+ {{#resorts}}
+<form action="/user?_method=" method="post" >
+      <option value="{{id}}">{{name}}</option>
+  <button type="submit">submit</button>
+</form>
+{{/resorts}}
+
+      <form action="/user?_method=delete" method="post" >
+      <p>If you want to delete profile, just click the button below.</p>
+      <button type="submit">submit</button>
+      </form>
+   {{/logged_in}}
+</body>
+</html>

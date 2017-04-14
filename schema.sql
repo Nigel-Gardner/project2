@@ -1,0 +1,27 @@
+DROP TABLE IF EXISTS users cascade;
+DROP TABLE IF EXISTS resort cascade;
+DROP TABLE IF EXISTS visited cascade;
+
+CREATE TABLE users(
+  id SERIAL PRIMARY KEY,
+  email VARCHAR (50) NOT NULL,
+  password VARCHAR (250) NOT NULL,
+  firstName VARCHAR (50) NOT NULL,
+  lastName VARCHAR (50) NOT NULL,
+  aboutMe VARCHAR (4000) NOT NULL,
+  skiLevel VARCHAR (50) NOT NULL
+);
+
+CREATE TABLE resort(
+  id SERIAL PRIMARY KEY,
+  name VARCHAR (50) NOT NULL,
+  city VARCHAR (50) NOT NULL,
+  state VARCHAR (50) NOT NULL
+);
+
+CREATE TABLE visited(
+id SERIAL PRIMARY KEY,
+user_id INTEGER REFERENCES users(id),
+resort_id INTEGER REFERENCES resort(id),
+visit_date VARCHAR (50) NOT NULL
+);

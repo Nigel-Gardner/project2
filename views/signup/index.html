@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Signup</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+</head>
+<body>
+
+  <h1>Signup Here!</h1>
+
+<div class="row">
+        <div class="col s12 m4">
+            <form class="col s12" method="POST" action="/signup">
+
+            <input name="email" id="email" type="text" class="validate">
+            <label for="email">Email</label>
+
+            <input name="password" id="password" type="password" class="validate">
+            <label for="password">Password</label> <br>
+
+            <input name='firstName' id="first_name" type="text" class="validate">
+            <label for="first_name">First Name</label>
+
+            <input name='lastName' id="last_name" type="text" class="validate">
+            <label for="last_name">Last Name</label>
+
+            <input name='aboutMe' id="about_me" type="text" class="validate">
+            <label for="aboutMe">About ME</label>
+
+            <input name='skiLevel' id="ski_level" type="text" class="validate">
+            <label for="skilevel">Ski Level</label>
+            <br>
+             <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+</body>
+</html>

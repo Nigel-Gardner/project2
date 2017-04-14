@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Lobby</title>
+  <style>
+      ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+  </style>
+
+</head>
+<body>
+  {{#logged_in}}
+  <ul>
+            <li><a class="nav" href="http://localhost:3000/home">Lobby</a></li>
+            <li><a class="nav" href="http://localhost:3000/resorts">Resorts Visited</a></li>
+            <li><a class="nav" href="http://localhost:3000/profile/">Profile Home</a></li>
+            <li><a class="nav" href="http://localhost:3000/logout/">Logout</a></li>
+          </ul>
+      <br>
+
+  <h1>Hello {{firstname}}
+  <br>Check out the SNOW REPORT for a few ski resorts that I think you might like. Feel free to add you own locations and places you visited to your profile</h1>
+    {{#resort}}
+
+          <p>{{name}}, {{city}}, {{state}}.</p>
+   <body>
+ <p class="prompt">Enter the zip code or city name for the Snow Report</p>
+ <form class="pure-form">
+  <input id="city_entered" type="text" placeholder="Enter city or Zip Code" class="pure-input-rounded">
+   <button id="submit_button" type="submit" class="pure-button">Search</button>
+ </form>
+
+ <p id="forecast"></p>
+ <br></br>
+
+ <p class="date"></p>
+
+    {{/resort}}
+  {{/logged_in}}
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
